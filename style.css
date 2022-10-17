@@ -1,0 +1,63 @@
+
+
+/*Use border box bc we don't want any padding to effect the width of the elements */
+* {
+    box-sizing: border-box;
+}
+
+section {
+    background-color: #f9fafb;
+    font-family: 'roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* moves to center of screen */
+    min-height: 100vh; /*view port height: think of it as 100 horizontal slices and doing this will make our page take up all 100 slices */
+    width: 100%;
+}
+
+.container {
+    border: 1px solid black;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.display {
+background: lightgrey;
+height: 100px;
+width: 100%;
+text-align: right;
+padding: 20px;
+font-size: 30px;
+}
+
+.display-top {
+    opacity: .5;
+    font-size: 20px;
+    height: 20px;
+    overflow: hidden;
+}
+.clear-buttons {
+    color: whitesmoke;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100px;
+
+}
+
+.all-buttons {
+    color: whitesmoke;
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+}
+
+.number, .operation, .decimal, .equals, .all-clear, .last-clear {
+    height: 100px;
+    width: 100%;
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
