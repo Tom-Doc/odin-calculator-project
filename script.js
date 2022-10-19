@@ -6,7 +6,7 @@ const equalsButton = document.querySelector('.equals');
 const numbers = document.querySelectorAll('.number');
 const operations = document.querySelectorAll('.operation');
 
-//Vars to hold values
+// Vars to hold values
 let hasDecimal = false;
 let hasDivide = false;
 let hasMultiply = false;
@@ -17,7 +17,7 @@ let displayNum2 = '';
 let lastOperator = '';
 let addSolution = '';
 
-// Function for calculating the mathematical operators
+// Function to calculate mathematical operations
 function calculate() {
     displayNum1 = Number(displayNum1)
     displayNum2 = Number(displayNum2)
@@ -34,16 +34,23 @@ function calculate() {
     console.log(displayNum1);
 }
 
-// Function for AC button
+// Function for AC button to clear everything
 function allClear() {
-    displayMain.innerText = '';
+    hasDecimal = false;
+    hasDivide = false;
+    hasMultiply = false;
+    hasSub = false;
+    hasAdd = false;
     displayNum1 = '';
     displayNum2 = '';
     lastOperator = '';
+    addSolution = '';
+    displayMain.textContent = displayNum1;
+    displayMain.textContent = displayNum1;
 
 }
 
-//forEach looping through each number
+// Numbers forEach to loop through each number, grab the value, and display
 numbers.forEach(numbers => {
     numbers.addEventListener('click', (e) => {
 
@@ -62,9 +69,12 @@ numbers.forEach(numbers => {
             console.log('Op Display:', lastOperator);
             console.log('display2:', displayNum2);
         }
+
+    });
 });
 
-//forEach looping through each operator, also makes sure ops can't be hit twice in a row
+// Operations forEach to loop through each operator, display op, and not allow 
+// double ops to be hit in a row
 operations.forEach(operations => {
     operations.addEventListener('click', (e) => {
         if (e.target.innerText === '.' && !hasDecimal) {
@@ -93,18 +103,18 @@ operations.forEach(operations => {
         } else if (e.target.innerText === '-' && hasSub) {
             return;
         }
-        lastOperator += e.target.innerText; 
+        lastOperator += e.target.innerText; // innerText will get rid of every thing else (<button class=> ect) and just show us the value like (7, 8, 9, ect)
     });
 });
 
-// Equals event listener - runs calculate function & displays results
+// Equals event lister - runs calculate function and displays results
 equalsButton.addEventListener('click', () => {
     calculate()
     displayNum1.innerText;
     displayMain.innerText = displayNum1
 });
 
-// AC event listener to clear all results
+// AC event listener - runs allClear function to remove display and reset calculator
 allClearButton.addEventListener('click', () => {
     allClear();
 });
