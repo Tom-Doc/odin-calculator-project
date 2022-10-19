@@ -11,6 +11,7 @@ const operations = document.querySelectorAll('.operation');
 
 const numsAndOps = document.querySelectorAll('.number, .operation, .decimal');
 
+
 let hasDecimal = false;
 let hasDivide = false;
 let hasMultiply = false;
@@ -20,12 +21,7 @@ let hasAdd = false;
 let displayNum1 = '';
 let displayNum2 = '';
 let lastOperator = '';
-
-function clearMainDisplay (name = '') {
-    displayNum1 += displayNum2+ '' + name + '';
-    displayMain.innerText = displayTop;
-}
-
+let addSolution = '';
 
 numbers.forEach(numbers => {
     numbers.addEventListener('click', (e) => {
@@ -40,8 +36,9 @@ numbers.forEach(numbers => {
             displayMain.innerText = displayNum1
         } else {
             displayNum2 += e.target.innerText;
-            // displayMain.innerText = parseInt(displayNum1 += displayNum2)
+            displayMain.innerText = displayNum1 + lastOperator + displayNum2
             console.log('display1:', displayNum1);
+            console.log('Op Display:',lastOperator);
             console.log('display2:', displayNum2);
         }
         // displayNum1 += e.target.innerText; // innerText will get rid of every thing else (<button class=> ect) and just show us the value like (7, 8, 9, ect)
@@ -78,13 +75,14 @@ operations.forEach(operations => {
             return;
         }
         lastOperator += e.target.innerText; // innerText will get rid of every thing else (<button class=> ect) and just show us the value like (7, 8, 9, ect)
-        displayMain.innerText = displayNum1 += lastOperator += displayNum2;
     });
 });
 
 equalsButton.addEventListener('click', () => {
     if(lastOperator === '+') {
-        return displayNum1 + displayNum1
+        return displayNum1 + displayNum2
     }
-    return displayNum1;
+    addSolution = displayNum1 + displayNum2
+    displayMain.innerText = addSolution
+    console.log(addSolution);
 });
