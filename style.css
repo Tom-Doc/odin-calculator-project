@@ -52,7 +52,7 @@ font-size: 30px;
     grid-template: repeat(4, 1fr) / repeat(4, 1fr);
 }
 
-.number, .operation, .decimal, .equals, .all-clear, .last-clear {
+.number, .operation, .decimal, .equals, .all-clear, .delete {
     height: 100px;
     width: 100%;
     font-size: 30px;
