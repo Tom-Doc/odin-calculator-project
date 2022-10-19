@@ -1,28 +1,49 @@
-const displayTop = document.querySelector('.display-top');
 const displayMain = document.querySelector('.display-main');
-
+// const displayTop = document.querySelector('.display-top');
 const allClearButton = document.querySelector('.all-clear');
-const lastClearButton = document.querySelector('.last-clear');
-// const decimalButton = document.querySelector('.decimal');
+const deleteButton = document.querySelector('.delete');
 const equalsButton = document.querySelector('.equals');
-
 const numbers = document.querySelectorAll('.number');
 const operations = document.querySelectorAll('.operation');
 
-const numsAndOps = document.querySelectorAll('.number, .operation, .decimal');
-
-
+//Vars to hold values
 let hasDecimal = false;
 let hasDivide = false;
 let hasMultiply = false;
 let hasSub = false;
 let hasAdd = false;
-
 let displayNum1 = '';
 let displayNum2 = '';
 let lastOperator = '';
 let addSolution = '';
 
+// Function for calculating the mathematical operators
+function calculate() {
+    displayNum1 = Number(displayNum1)
+    displayNum2 = Number(displayNum2)
+    if (lastOperator === '+') {
+        displayNum1 += displayNum2;
+    } else if (lastOperator === "-") {
+        displayNum1 -= displayNum2;
+    } else if (lastOperator === "x") {
+        displayNum1 *= displayNum2
+    } else {
+        displayNum1 /= displayNum2
+    }
+
+    console.log(displayNum1);
+}
+
+// Function for AC button
+function allClear() {
+    displayMain.innerText = '';
+    displayNum1 = '';
+    displayNum2 = '';
+    lastOperator = '';
+
+}
+
+//forEach looping through each number
 numbers.forEach(numbers => {
     numbers.addEventListener('click', (e) => {
 
@@ -38,14 +59,12 @@ numbers.forEach(numbers => {
             displayNum2 += e.target.innerText;
             displayMain.innerText = displayNum1 + lastOperator + displayNum2
             console.log('display1:', displayNum1);
-            console.log('Op Display:',lastOperator);
+            console.log('Op Display:', lastOperator);
             console.log('display2:', displayNum2);
         }
-        // displayNum1 += e.target.innerText; // innerText will get rid of every thing else (<button class=> ect) and just show us the value like (7, 8, 9, ect)
-        // displayMain.innerText = displayNum1; // += allows multiple numbers and numbers + operations to display instead of just 1 value at a time
-    });
 });
 
+//forEach looping through each operator, also makes sure ops can't be hit twice in a row
 operations.forEach(operations => {
     operations.addEventListener('click', (e) => {
         if (e.target.innerText === '.' && !hasDecimal) {
@@ -74,15 +93,18 @@ operations.forEach(operations => {
         } else if (e.target.innerText === '-' && hasSub) {
             return;
         }
-        lastOperator += e.target.innerText; // innerText will get rid of every thing else (<button class=> ect) and just show us the value like (7, 8, 9, ect)
+        lastOperator += e.target.innerText; 
     });
 });
 
+// Equals event listener - runs calculate function & displays results
 equalsButton.addEventListener('click', () => {
-    if(lastOperator === '+') {
-        return displayNum1 + displayNum2
-    }
-    addSolution = displayNum1 + displayNum2
-    displayMain.innerText = addSolution
-    console.log(addSolution);
+    calculate()
+    displayNum1.innerText;
+    displayMain.innerText = displayNum1
+});
+
+// AC event listener to clear all results
+allClearButton.addEventListener('click', () => {
+    allClear();
 });
