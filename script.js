@@ -32,7 +32,7 @@ function calculate() {
     }
 
     console.log(displayNum1);
-}
+};
 
 // Function for AC button to clear everything
 function allClear() {
@@ -41,7 +41,7 @@ function allClear() {
     hasMultiply = false;
     hasSub = false;
     hasAdd = false;
-    displayNum1 = '';
+    displayNum1 = '0';
     displayNum2 = '';
     lastOperator = '';
     addSolution = '';
