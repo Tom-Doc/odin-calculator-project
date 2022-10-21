@@ -40,9 +40,10 @@ font-size: 30px;
 }
 .clear-buttons {
     color: whitesmoke;
-    display: grid;
+    /* display: grid; */
     grid-template-columns: 1fr 1fr;
     height: 100px;
+    width: 100%;
 
 }
 
