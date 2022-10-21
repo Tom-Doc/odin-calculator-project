@@ -15,7 +15,7 @@ let hasAdd = false;
 let displayNum1 = '';
 let displayNum2 = '';
 let lastOperator = '';
-let addSolution = '';
+let currentValue = false;
 
 // Function to calculate mathematical operations
 function calculate() {
@@ -41,10 +41,9 @@ function allClear() {
     hasMultiply = false;
     hasSub = false;
     hasAdd = false;
-    displayNum1 = '0';
+    displayNum1 = '';
     displayNum2 = '';
     lastOperator = '';
-    addSolution = '';
     displayMain.textContent = displayNum1;
     displayMain.textContent = displayNum1;
 
@@ -77,9 +76,9 @@ numbers.forEach(numbers => {
 // double ops to be hit in a row
 operations.forEach(operations => {
     operations.addEventListener('click', (e) => {
-        if (e.target.innerText === '.' && !hasDecimal) {
-            hasDecimal = true;
-        } else if (e.target.innerText === '.' && hasDecimal) {
+        if (!displayNum2) {
+            hasDecimal = false;
+        } else if (displayNum2) {
             return;
         }
 
