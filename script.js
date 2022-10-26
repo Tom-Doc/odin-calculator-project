@@ -111,9 +111,26 @@ equalsButton.addEventListener('click', () => {
     calculate()
     displayNum1.innerText;
     displayMain.innerText = displayNum1
+    //Below will disable equals after results displayed
+    document.querySelector('.equals').disabled = true;
+    //Both forEach below will disable all numbers and ops after results displayed
+    document.querySelectorAll('.number').forEach(elem => {
+        elem.disabled = true;
+      });
+      document.querySelectorAll('.operation').forEach(elem => {
+        elem.disabled = true;
+      });
+    
 });
 
 // AC event listener - runs allClear function to remove display and reset calculator
 allClearButton.addEventListener('click', () => {
     allClear();
+    document.querySelector('.equals').disabled = false;
+    document.querySelectorAll('.number').forEach(elem => {
+        elem.disabled = false;
+      });
+      document.querySelectorAll('.operation').forEach(elem => {
+        elem.disabled = false;
+      });
 });
