@@ -64,9 +64,9 @@ numbers.forEach(numbers => {
         } else {
             displayNum2 += e.target.innerText;
             displayMain.innerText = displayNum1 + lastOperator + displayNum2
-            console.log('display1:', displayNum1);
-            console.log('Op Display:', lastOperator);
-            console.log('display2:', displayNum2);
+            // console.log('display1:', displayNum1);
+            // console.log('Op Display:', lastOperator);
+            // console.log('display2:', displayNum2);
         }
 
     });
