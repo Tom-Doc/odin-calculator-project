@@ -1,1 +1,3 @@
 # odin-calculator-project
+
+I started this project on 10/11/2022 and finished on 10/25 and I spent around 6ish hours total between 10/11 - 10/25. This was a very daunting project at first, and I kept putting it off because I was afraid I would fail, but I made it all the way through. The majority of this project was just practicing what we've learned so far: Basic HTML/CSS, DOM manipulation, functions, and event listeners. I was stumped more than a handful of times, my code probably looks fairly wonky compared to other peoples, and I didn't get a backspace button working, but everything else works! Overall I had a lot more fun than I thought I would and I feel like I learned a lot.
